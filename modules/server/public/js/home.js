@@ -38,11 +38,12 @@ $(document).ready(() => {
 
     $uploadBtn.on('click', (e) => {
         var fileList = $('#avatar')[0].files
-        console.log(fileList)
-        var formData = new FormData()
+        var fd = new FormData()
+
+        fd.set('name', 'avatar')
 
         for (let i = 0; i < fileList.length; i++) {
-            formData.append('multerFile', fileList[i])
+            fd.append('file', fileList[i])
         }
 
         $.ajax({
@@ -50,7 +51,7 @@ $(document).ready(() => {
             type: 'post',
             processData: false,
             contentType: false, //使用multer配合ajax时无需配置multipart/form-data，multer将自动配置，手动配置将报错，boundary not found
-            data: formData,
+            data: fd,
             success: function (data) {
                 console.log(data)
             },

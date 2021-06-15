@@ -8,6 +8,7 @@ const responseTime = require('response-time')
 const timeout = require('connect-timeout')
 const favicon = require('serve-favicon')
 const hbs = require('hbs')
+const path = require('path')
 const sassMiddleware = require('node-sass-middleware')
 const logger = require('../../common/utils/logger')
 const sse = require('./sse.server')
@@ -48,20 +49,20 @@ function hbsMiddleware(req, res, next) {
 }
 
 // scss && hbs
-if (process.env.NODE_ENV === 'dev') {
-    app.use(
-        sassMiddleware({
-            src: path.join(__dirname, 'styles'),
-            dest: path.join(__dirname, 'public'),
-            outputStyle: 'compressed',
-            sourceMap: false,
-            debug: true,
-        })
-    )
-    app.use(hbsMiddleware)
-} else {
-    registerHbs()
-}
+// if (process.env.NODE_ENV === 'dev') {
+//     app.use(
+//         sassMiddleware({
+//             src: path.join(__dirname, 'styles'),
+//             dest: path.join(__dirname, 'public'),
+//             outputStyle: 'compressed',
+//             sourceMap: true,
+//             debug: true,
+//         })
+//     )
+//     app.use(hbsMiddleware)
+// } else {
+//     registerHbs()
+// }
 
 // static
 app.use(express.static(__dirname + '/public'))
