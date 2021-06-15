@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{title}}</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    {{#each cssList}}
+        <link rel='stylesheet' href={{this}} />
+    {{/each}}
+</head>
+<body>
+    default layout
+    {{{body}}}
+
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/jquery.min.js"></script>
+    {{#each jsList}}
+        <script src={{this}}></script>
+    {{/each}}
+</body>
+</html>

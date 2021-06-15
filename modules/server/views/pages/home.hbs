@@ -1,0 +1,81 @@
+{{> modal}}
+
+<div class="container px-0">
+  container
+  <h1 class="title">{{title}}</h1>
+  <p>Welcome to {{title}}</p>
+  <img src="/img/logo.png" alt="logo">
+
+  <form action="/user/login" method="post" target="stop">
+      <input class="form-control" placeholder="account" name="account"/>
+      <input class="form-control" placeholder="password" name="password"/>
+      <button type="submit" class="btn btn-primary">login</button>
+  </form>
+
+  <form >
+      <input class="form-control" id="accountInput" placeholder="account"/>
+      <input class="form-control" id="passwordInput" placeholder="password"/>
+      <div id="loginBtn" class="btn btn-primary">login by ajax</div>
+  </form>
+
+  <form method='post' action='/api/upload' enctype='multipart/form-data' target="stop">
+      <input class="form-control" name="avatar" type="file"/>
+      <button type="submit" class="btn btn-primary">upload</button>
+  </form>
+
+  <form>
+      <input class="form-control" id="avatar" type="file" multiple/>
+      <div id="uploadBtn" class="btn btn-primary">upload by ajax</div>
+  </form>
+
+    <div class="row gx-3 gy-3">
+      <div class="col-6">
+        <div class="p-3 border bg-light">Custom column padding</div>
+      </div>
+      <div class="col-6">
+        <div class="p-3 border bg-light">Custom column padding</div>
+      </div>
+      <div class="col-6">
+        <div class="p-3 border bg-light">Custom column padding</div>
+      </div>
+      <div class="col-6">
+        <div class="p-3 border bg-light">Custom column padding</div>
+      </div>
+    </div>
+
+    <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">First</th>
+        <th scope="col">Last</th>
+        <th scope="col">Handle</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">1</th>
+        <td>Mark</td>
+        <td>Otto</td>
+        <td>@mdo</td>
+      </tr>
+      <tr>
+        <th scope="row">2</th>
+        <td>Jacob</td>
+        <td>Thornton</td>
+        <td>@fat</td>
+      </tr>
+      <tr>
+        <th scope="row">3</th>
+        <td colspan="2">Larry the Bird</td>
+        <td>@twitter</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- 阻止提交跳转页面 -->
+<iframe  name="stop" style="display:none;"></iframe> 
+
+{{js "/js/home.js"}}
+{{css "/css/main.css"}}
